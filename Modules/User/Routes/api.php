@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\User\Http\Controllers\Api\v1\SessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-//Route::name('sessions.')->group(function () {
-//    Route::post('login', [SessionsController::class, 'login'])->name('login');
-//    Route::post('register', [SessionsController::class, 'register'])->name('register');
-//    Route::get('register/activate/{token}', [SessionsController::class, 'activateAccount'])->name('activate-account');
-//    Route::post('register/resend-activation-email', [SessionsController::class, 'resendActivationEmail'])->name('resend-activation-email');
-//
-//    /**
-//     * Here we put protected routes
-//     */
-//    Route::middleware('auth:sanctum')->group(function () {
-//        Route::post('password/change', [SessionsController::class, 'changePassword'])->name('change-password');
-//        Route::post('logout', [SessionsController::class, 'logout'])->name('logout');
-//    });
-//});
+Route::prefix('sessions')->group(function () {
+    Route::post('login', [SessionsController::class, 'login']);
+
+    /**
+     * Protecting Routes
+     */
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('logout', [SessionsController::class, 'logout']);
+    });
+});
