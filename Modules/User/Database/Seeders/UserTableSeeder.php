@@ -17,6 +17,11 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         Log::alert('inside user table seeder');
+
         User::factory()->count(10)->create();
+
+        User::factory()->create([
+            'email' => 'admin@admin.com',
+        ]);
     }
 }
