@@ -2,10 +2,10 @@
 
 namespace Modules\User\Database\factories;
 
-use Illuminate\Support\Facades\Hash;
-use Modules\User\Entities\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Modules\User\Entities\User;
 
 /**
  * @extends Factory
