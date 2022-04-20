@@ -18,13 +18,13 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required','email','max:255'],
-            'password' => ['required','min:6'],
+            'email' => ['required', 'email', 'max:255'],
+            'password' => ['required', 'min:6'],
         ];
     }
 
     protected function failedValidation(Validator $validator)
     {
-        throw new HttpResponseException(ApiResponseHandler::respondWithError($validator->errors()->first(), null,Response::HTTP_UNPROCESSABLE_ENTITY));
+        throw new HttpResponseException(ApiResponseHandler::respondWithError($validator->errors()->first(), null, Response::HTTP_UNPROCESSABLE_ENTITY));
     }
 }
