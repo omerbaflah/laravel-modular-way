@@ -2,8 +2,8 @@
 
 namespace Modules\User\Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class UserDatabaseSeeder extends Seeder
 {
@@ -19,6 +19,6 @@ class UserDatabaseSeeder extends Seeder
         $this->command->getOutput()->title('User Module Seeding');
         $this->command->getOutput()->title('Seeding Users');
         $this->call(class: UserTableSeeder::class);
-        $this->command->getOutput()->progressStart( 10);
+        $this->command->getOutput()->progressStart(10);
     }
 }
